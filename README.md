@@ -1,2 +1,11 @@
-# introduction-to-oop
-Depois de desbravar algumas funções que manipulam strings, arrays e conceitos básicos da linguagem, é hora de ir para o Object-Oriented Programming (OOP), seguindo novamente as instruções do instrutor Vinicius Dias da Alura.
+# Introdução a POO
+
+Nesse estudo, posso listar o que estou aprendendo: 
+- Entender a diferença entre o paradigma OO e o procedural;
+- Utilizar construtores;
+- Como usar métodos estáticos;
+- Reutilização de código através da composição;
+- Classes, objetos, atributos e métodos;
+- Além de por em prática, comandos do git para pushar tudo para esse repositório.
+  
+```bash
