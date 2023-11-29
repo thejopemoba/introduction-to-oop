@@ -7,15 +7,25 @@ cenário. */
 class Account
 {
     public string $holderCpf;
-    public string $holderName;     // ---> atributos da class Account
-    public float $balance;
+    public string $holderName;     // atributos da class Account
+    public float $balance = 0;    // aqui definimos o saldo como 0 para cada conta criada
 
-    public function toWithdraw(float $amountToWithdraw) 
+    public function toWithdraw(float $amountToWithdraw) // método para sacar
     {
-        if ($amountToWithdraw > $this->saldo) {
+        if ($amountToWithdraw > $this->balance) {
             echo "Unavailable balance, try again." . PHP_EOL;
         } else {
-            $this->saldo -= $amountToWithdraw;
+            $this->balance -= $amountToWithdraw;
+        }
+
+    }
+
+    public function deposit(float $amountToDeposit): void // método para depositar
+    {
+        if ($amountToDeposit < 0) {
+            echo "The amount to deposit needs to be positive." . PHP_EOL;
+        } else {
+            $this->balance += $amountToDeposit;
         }
 
     }
