@@ -10,7 +10,18 @@ class Account
     public string $holderName;     // ---> atributos da class Account
     public float $balance;
 
+    public function toWithdraw(float $amountToWithdraw) 
+    {
+        if ($amountToWithdraw > $this->saldo) {
+            echo "Unavailable balance, try again." . PHP_EOL;
+        } else {
+            $this->saldo -= $amountToWithdraw;
+        }
+
+    }
 }
+
+//Criamos uma função de saque, onde $this é a variável que vamos chamar lá no objeto.
 
 /* para criamos um endereço para armazenar nosso objeto utilizamos a sintaxe, onde
 o operador new é usado para criar uma nova instância, instância e objeto são sinonimos, logo 
@@ -24,6 +35,17 @@ $firstAccount->holderCpf = '156.498.416-19';
 $firstAccount->holderName = 'João Pedro';
 $firstAccount->balance = '1500';
 
-var_dump($firstAccount, $secondAccount);
+// criando uma segunda conta
+
+$secondAccount = new Account();
+
+$secondAccount->holderCpf = '123.456.789-10';
+$secondAccount->holderName = 'Beatriz Olivera';
+$secondAccount->balance = '2500';
+
+
+var_dump($secondAccount);
+
+
 
 ?>
