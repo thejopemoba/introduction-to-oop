@@ -14,22 +14,34 @@ class Account
     {
         if ($amountToWithdraw > $this->balance) {
             echo "Unavailable balance, try again." . PHP_EOL;
-        } else {
-            $this->balance -= $amountToWithdraw;
-        }
-
+            return;
+        } 
+        
+        $this->balance -= $amountToWithdraw; 
     }
 
     public function deposit(float $amountToDeposit): void // método para depositar
     {
         if ($amountToDeposit < 0) {
             echo "The amount to deposit needs to be positive." . PHP_EOL;
-        } else {
-            $this->balance += $amountToDeposit;
+            return;
+        } 
+        
+        $this->balance += $amountToDeposit;
+    }
+    
+
+    public function transfer(float $valueToTransfer, Account $destAccount): void
+    {
+        if ($valueToTransfer > $this->balance) {
+            echo "Unavailable balance, try again.". PHP_EOL;
+        return;
         }
 
+        $this->toWithdraw($valueToTransfer);
+        $destAccount->deposit($valueToTransfer); 
     }
-}
+
 
 //Criamos uma função de saque, onde $this é a variável que vamos chamar lá no objeto.
 
@@ -53,9 +65,11 @@ $secondAccount->holderCpf = '123.456.789-10';
 $secondAccount->holderName = 'Beatriz Olivera';
 $secondAccount->balance = '2500';
 
-
-var_dump($secondAccount);
-
-
+$contaUm = new Account();
+$contaUm->deposit('500');
+$contaDois = new Account();
+$contaUm->transfer('200', $contaDois);
+ 
+echo $contaDois->balance;
 
 ?>
