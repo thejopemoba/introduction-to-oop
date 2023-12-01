@@ -42,6 +42,7 @@ class Account
         $destAccount->deposit($valueToTransfer); 
     }
 
+}
 
 //Criamos uma função de saque, onde $this é a variável que vamos chamar lá no objeto.
 
